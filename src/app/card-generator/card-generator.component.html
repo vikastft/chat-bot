@@ -1,0 +1,31 @@
+<div>
+  <mat-card *ngIf="data.responseType === 'question'" class="question-card">
+    <mat-card-content>
+      <p>{{data.nextQues}}</p>
+    </mat-card-content>
+
+    <mat-card-actions *ngIf="data.inputType === 'button'">
+      <button class="card-buttons" [disabled]='disable' *ngFor="let option of data.options" mat-button
+        (click)="send(option)">{{option}}</button>
+    </mat-card-actions>
+
+    <div *ngIf="data.inputType === 'text' && disable === false">
+      <mat-form-field class="example-full-width">
+        <textarea [disabled]='disable' matInput #textData></textarea>
+        <mat-icon *ngIf="textData.value" class="icon-class" (click)="send(textData.value)">send</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="slider-pos" *ngIf="data.inputType === 'slider' && disable === false">
+      <mat-slider min="0" max="5" step="1" thumbLabel=true [(ngModel)]="sliderValue"></mat-slider>
+      <mat-icon *ngIf="sliderValue !== undefined" class="icon-class" (click)="send(sliderValue)">send</mat-icon>
+    </div>
+  </mat-card>
+
+
+  <mat-card *ngIf="data.responseType === 'answer'" class="answer-card">
+    <mat-card-content>
+      <p>{{data.userResponse}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
