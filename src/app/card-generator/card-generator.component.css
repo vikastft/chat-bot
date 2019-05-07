@@ -1,18 +1,19 @@
 .question-card {
     background-color: #B9F6CA;
-    max-width: 40%;
+    max-width: 45%;
     border-radius: 2px;
-    margin: 10px 0;
+    margin: 10px;
+    width: fit-content;
 }
 
 .answer-card {
     color:#1976D2 !important;
-    border: 2px solid lightgray;
     max-width: 40%;
     float: right;
     border-radius: 2px;
     background-color: #fff;
-    margin: 10px 0;
+    margin: 10px;
+    word-break: break-all;
 }
 
 :host /deep/ .question .mat-card-content {
@@ -22,6 +23,11 @@
 .mat-card {
     padding: 20px 15px;
 }
+.mat-card-actions {
+    margin-left: 10px;
+    text-align: left;
+    max-width: 80%;
+}
 
 .mat-button{
     border: 2px solid;
@@ -30,21 +36,63 @@
 
 .card-buttons {
     margin: 0 5px 5px 0 !important;
+    /* background-color: lightgrey; */
+    padding: 5px;
 }
 
 .example-full-width {
-    width: 100%;
+    /* width: 90%; */
+    text-align: left;
+    margin-left: 10px;
+    width: 75%;
 }
 
 .icon-class {
     cursor: pointer;
-    float: right;
+    margin-left: 5px;
 }
 
 .mat-slider-horizontal {
-    width:90%
+    width: 50%;
+    height: 60px;
 }
 
 .slider-pos {
     margin-top: 20px;
+    text-align: left;
+    margin-left: 10px;
 }
+
+.emojis {
+    width: 60px;
+    display: block;
+    /* margin: 0 auto; */
+    margin-left: 21%;
+    /* padding: 15px; */
+}
+
+:host /deep/ .mat-slider.mat-slider-horizontal .mat-slider-wrapper {
+    top: 18px;
+  }
+  :host /deep/ .mat-slider.mat-slider-horizontal .mat-slider-track-wrapper {
+    height: 12px;
+    border-radius: 10px
+  }
+  :host /deep/ .mat-slider.mat-slider-horizontal .mat-slider-track-background,
+  :host /deep/ .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    height: 100%;
+  }
+  :host /deep/ .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    background-color: blue;
+  }
+  :host /deep/ .mat-accent .mat-slider-thumb {
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border: solid 2px gray;
+    bottom: -20px;
+    right: -20px;
+  }
+  :host /deep/ .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb {
+    background-color: white;
+  }

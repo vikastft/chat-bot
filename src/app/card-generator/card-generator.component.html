@@ -4,23 +4,41 @@
       <p>{{data.nextQues}}</p>
     </mat-card-content>
 
-    <mat-card-actions *ngIf="data.inputType === 'button'">
+    <!-- <mat-card-actions *ngIf="data.inputType === 'button'">
       <button class="card-buttons" [disabled]='disable' *ngFor="let option of data.options" mat-button
         (click)="send(option)">{{option}}</button>
-    </mat-card-actions>
+    </mat-card-actions> -->
 
-    <div *ngIf="data.inputType === 'text' && disable === false">
+    <!-- <div *ngIf="data.inputType === 'text' && disable === false">
       <mat-form-field class="example-full-width">
-        <textarea [disabled]='disable' matInput #textData></textarea>
-        <mat-icon *ngIf="textData.value" class="icon-class" (click)="send(textData.value)">send</mat-icon>
+        <textarea class="textarea-width" [disabled]='disable' matInput #textData></textarea>
       </mat-form-field>
-    </div>
+      <mat-icon *ngIf="textData.value" class="icon-class" (click)="send(textData.value)">send</mat-icon>
+    </div> -->
 
-    <div class="slider-pos" *ngIf="data.inputType === 'slider' && disable === false">
+    <!-- <div class="slider-pos" *ngIf="data.inputType === 'slider' && disable === false">
       <mat-slider min="0" max="5" step="1" thumbLabel=true [(ngModel)]="sliderValue"></mat-slider>
       <mat-icon *ngIf="sliderValue !== undefined" class="icon-class" (click)="send(sliderValue)">send</mat-icon>
-    </div>
+    </div> -->
   </mat-card>
+
+  <mat-card-actions *ngIf="data.inputType === 'button'">
+    <button class="card-buttons" [disabled]='disable' *ngFor="let option of data.options" mat-button
+      (click)="send(option)">{{option}}</button>
+  </mat-card-actions>
+
+  <div style="text-align: left;"*ngIf="data.inputType === 'text' && disable === false">
+    <mat-form-field class="example-full-width">
+      <textarea class="textarea-width" [disabled]='disable' matInput #textData></textarea>
+    </mat-form-field>
+    <mat-icon *ngIf="textData.value" class="icon-class" (click)="send(textData.value)">send</mat-icon>
+  </div>
+
+  <div class="slider-pos" *ngIf="data.inputType === 'slider' && disable === false">
+    <img *ngIf="showImojis" class="emojis" [src]="imageSrc">
+    <mat-slider min="1" max="5" step="1" thumbLabel=true [(ngModel)]="sliderValue" (change)="sliderChanged()"></mat-slider>
+    <mat-icon *ngIf="sliderValue !== undefined" class="icon-class" (click)="send(sliderValue)">send</mat-icon>
+  </div>
 
 
   <mat-card *ngIf="data.responseType === 'answer'" class="answer-card">

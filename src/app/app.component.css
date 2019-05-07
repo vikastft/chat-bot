@@ -3,6 +3,7 @@
     max-width: 700px;
     margin: 0 auto;
     display: grid;
+    /* background-color: antiquewhite; */
 }
 .example-form {
     min-width: 150px;
@@ -29,6 +30,8 @@ nav .nav-wrapper {
 
 nav {
     background-color: #26a69a;
+    color: #fff;
+    width: 100%;
 }
 
 h4 {
@@ -37,7 +40,22 @@ h4 {
     margin: 1.14rem 0 0.912rem 0;
 }
 nav .brand-l {
-    height: 77px;
+    height: 50px;
     left: 10px;
     position: inherit;
+}
+
+.thanks-container .mat-card {
+    padding: 40px;
+    box-shadow: none;
+}
+
+.container .mat-form-field {
+    background-color: white;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.chat-box {
+    background-color: antiquewhite;
 }

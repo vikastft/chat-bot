@@ -1,5 +1,6 @@
 export interface IChatDateModel {
-    id?: number;
+    userId?: number;
+    questionId?: number;
     nextQues?: string;
     prevQues?: string;
     responseType?: string;
