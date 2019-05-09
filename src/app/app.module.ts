@@ -8,7 +8,8 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatSliderModule
+  MatSliderModule,
+  MatButtonModule
 } from '@angular/material';
 import { CardGeneratorComponent } from './card-generator/card-generator.component';
 import { FormsModule } from '@angular/forms';
@@ -32,6 +33,7 @@ import { AppRoutingModule } from './app.routing';
     MatFormFieldModule,
     MatInputModule,
     MatSliderModule,
+    MatButtonModule,
 
     FormsModule,
     HttpClientModule

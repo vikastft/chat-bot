@@ -15,6 +15,7 @@ export class ChatService {
         const body = JSON.stringify(data);
         const url = this.baseUrl;
         return this.http.post(url, body, this.getRequestOptions(options)).pipe(
+            map((res: any) => this.extractData(res)),
             catchError(this.handleError<any>('chatApi')));
     }
 
@@ -28,6 +29,7 @@ export class ChatService {
         const body = JSON.stringify(data);
         const url = this.baseUrl;
         return this.http.post(url, body, this.getRequestOptions(options)).pipe(
+            map((res: any) => this.extractData(res)),
             catchError(this.handleError<any>('chatApi')));
     }
 

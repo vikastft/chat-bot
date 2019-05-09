@@ -20,6 +20,9 @@ export class CardGeneratorComponent implements OnInit {
   send(value) {
     this.disable = true;
     this.data['userResponse'] = value;
+    if (this.data['inputType'] === 'slider') {
+      this.data['imageSrc'] = this.imageSrc;
+    }
     this.userResponse.emit(this.data);
   }
 

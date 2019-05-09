@@ -22,12 +22,12 @@
     </div> -->
   </mat-card>
 
-  <mat-card-actions *ngIf="data.inputType === 'button'">
-    <button class="card-buttons" [disabled]='disable' *ngFor="let option of data.options" mat-button
+  <mat-card-actions *ngIf="data.inputType === 'button' && disable === false">
+    <button class="card-buttons" [disabled]='disable' *ngFor="let option of data.options" mat-raised-button color="primary"
       (click)="send(option)">{{option}}</button>
   </mat-card-actions>
 
-  <div style="text-align: left;"*ngIf="data.inputType === 'text' && disable === false">
+  <div class="text-form" *ngIf="data.inputType === 'text' && disable === false">
     <mat-form-field class="example-full-width">
       <textarea class="textarea-width" [disabled]='disable' matInput #textData></textarea>
     </mat-form-field>
@@ -36,14 +36,17 @@
 
   <div class="slider-pos" *ngIf="data.inputType === 'slider' && disable === false">
     <img *ngIf="showImojis" class="emojis" [src]="imageSrc">
-    <mat-slider min="1" max="5" step="1" thumbLabel=true [(ngModel)]="sliderValue" (change)="sliderChanged()"></mat-slider>
+    <mat-slider [thumbLabel]="false" min="1" max="5" step="1" thumbLabel=true [(ngModel)]="sliderValue" (change)="sliderChanged()"></mat-slider>
     <mat-icon *ngIf="sliderValue !== undefined" class="icon-class" (click)="send(sliderValue)">send</mat-icon>
   </div>
 
 
   <mat-card *ngIf="data.responseType === 'answer'" class="answer-card">
-    <mat-card-content>
-      <p>{{data.userResponse}}</p>
+    <mat-card-content *ngIf="data.answer?.inputType !== 'slider'">
+      <p>{{data.answer?.userResponse}}</p>
     </mat-card-content>
+    <mat-card-content *ngIf="data.answer?.inputType === 'slider'">
+        <img class="answer-emojis" [src]="data.answer?.imageSrc">
+      </mat-card-content>
   </mat-card>
 </div>

@@ -2,20 +2,25 @@
   <nav>
     <div class="nav-wrapper" style="display:flex; align-items: center;">
       <img class="brand-l" src="assets/logo.png">
-      <h4 style="margin: 0 auto;">ChatBot</h4>
+      <h4 style="margin: 0 auto;">Employee Pulse</h4>
     </div>
   </nav>
 </div>
 
-<div class="container" *ngIf="!isComplete">
-  <mat-form-field *ngIf="!userId" class="example-full-width">
-    <input matInput placeholder="Enter ID and press enter" #input (keyup.enter)="onUserEntered(input.value)">
-  </mat-form-field>
+<div #scrollMe class="container" *ngIf="!isComplete">
   <div *ngFor="let chat of chatContents" class="chat-box">
     <app-card-generator [data]="chat" (userResponse)="getChatData($event)"></app-card-generator>
   </div>
+  <mat-form-field *ngIf="!userId" class="example-full-width">
+    <input matInput type="number" placeholder="Enter Employee ID and press enter" #input
+      (keyup.enter)="onUserEntered(input.value)">
+  </mat-form-field>
+  <mat-error *ngIf="showError">Please enter your Employee ID</mat-error>
+  <!-- <div class="thanks-container" *ngIf="isComplete">
+      {{completeMessage}}
+  </div> -->
 </div>
 
 <div class="thanks-container" *ngIf="isComplete">
-  <mat-card>Thanks for your feedback.</mat-card>
+  <mat-card>{{completeMessage}}</mat-card>
 </div>
